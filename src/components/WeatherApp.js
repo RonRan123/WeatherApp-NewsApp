@@ -7,7 +7,7 @@ function WeatherApp(){
     const [input, setInput] = useState('Charlottesville');
     const [location, setLocation] = useState('Charlottesville');
     const [position, setPosition] = useState(null);
-
+    
     // https://reactjs.org/docs/hooks-faq.html#how-can-i-do-data-fetching-with-hooks
     // for some reason, seems to get triggered twice
     useEffect(() => { 

@@ -5,11 +5,11 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const getCoordinates = (location, isZipCode=false, country_code='US') => {
     let latitude, longitude, location_name, url;
     if(isZipCode){
-      url = new URL("http://api.openweathermap.org/geo/1.0/zip");
+      url = new URL("https://api.openweathermap.org/geo/1.0/zip");
       url.searchParams.append('zip', location +','+country_code )
     }
     else{
-      url = new URL(" http://api.openweathermap.org/geo/1.0/direct");
+      url = new URL("https://api.openweathermap.org/geo/1.0/direct");
       url.searchParams.append("q", location +','+country_code);
     }
     url.searchParams.append("appid", API_KEY);
