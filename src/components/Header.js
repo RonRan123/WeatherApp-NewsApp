@@ -21,7 +21,7 @@ function Header({onLocationSubmit}){
           }
       }
     return (
-        <>
+        <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center">
             <Typography variant='h1' component='h1'> Weather Forecast </Typography>
             <form onSubmit={onSubmit} >
                 <Box sx={{width: '20vw'}}>
@@ -31,7 +31,7 @@ function Header({onLocationSubmit}){
                 </Box>
             </form>
             
-        </>
+        </Box>
     )
 }
 

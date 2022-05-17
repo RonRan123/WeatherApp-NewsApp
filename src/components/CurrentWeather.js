@@ -1,9 +1,13 @@
-import timestamp from "unix-timestamp";
-function CurrentWeather(current){
+import { Typography, Box } from "@mui/material";
+import {formatDate, formatTemp} from "../utils/WeatherUtils.js"
+function CurrentWeather({current}){
     return (
-     <>
-     {JSON.stringify(current, null, 4)}
-     </>   
+     <Box>
+        <Typography variant='h2'>{formatTemp(current.temp)}</Typography>
+        <Typography variant='h5'>{current.weather[0].description.toUpperCase()}</Typography>
+        <Typography>{"As of " + formatDate(current.dt, { dateStyle: 'full', timeStyle: 'long' })}</Typography>
+
+     </Box>
     );
 }
 

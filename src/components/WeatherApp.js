@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from './Header.js';
 import Dashboard from "./Dashboard.js";
-import {getCoordinates} from '../api/Coordinates.js';
+import {getCoordinates} from '../utils/WeatherUtils';
 
 function WeatherApp(){
     const [location, setLocation] = useState('Charlottesville');

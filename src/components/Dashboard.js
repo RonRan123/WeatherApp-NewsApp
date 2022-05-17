@@ -8,7 +8,7 @@ import WeatherDaily from "./WeatherDaily.js";
 import WeatherHourly from "./WeatherHourly.js";
 
 // Functions
-import {getWeather} from '../api/Weather.js';
+import {getWeather} from '../utils/WeatherUtils.js';
 
 function Dashboard({location, position}){
 
@@ -23,13 +23,16 @@ function Dashboard({location, position}){
     fetchData();
     return () => { ignore = true; }
     }, [position]);
+    console.log(weather && weather.current)
     return (weather && 
         <>
             <Typography component='h3' variant='h3'> {location} Weather</Typography>
             {/* {weather && JSON.stringify(weather, null, 4)} */}
             <CurrentWeather current={weather.current}/>
-            <Options isDaily= {isDaily} switch= {() => setDaily(prevState => !prevState)}/>
+            <Options isDaily= {isDaily} changeFormat= {() => setDaily(prevState => !prevState)}/>
             {isDaily ? <WeatherDaily weather={weather.daily}/> : <WeatherHourly weather={weather.hourly}/>}
+            {/* <WeatherDaily weather={weather.daily}/> */}
+            {/* <WeatherHourly weather={weather.hourly} /> */}
         </>
     )
 }
