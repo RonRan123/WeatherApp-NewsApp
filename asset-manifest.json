@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/WeatherApp-NewsApp/static/css/main.073c9b0a.css",
-    "main.js": "/WeatherApp-NewsApp/static/js/main.22ac6f54.js",
+    "main.js": "/WeatherApp-NewsApp/static/js/main.01822686.js",
     "static/js/787.d9312eb8.chunk.js": "/WeatherApp-NewsApp/static/js/787.d9312eb8.chunk.js",
     "index.html": "/WeatherApp-NewsApp/index.html",
     "main.073c9b0a.css.map": "/WeatherApp-NewsApp/static/css/main.073c9b0a.css.map",
-    "main.22ac6f54.js.map": "/WeatherApp-NewsApp/static/js/main.22ac6f54.js.map",
+    "main.01822686.js.map": "/WeatherApp-NewsApp/static/js/main.01822686.js.map",
     "787.d9312eb8.chunk.js.map": "/WeatherApp-NewsApp/static/js/787.d9312eb8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.22ac6f54.js"
+    "static/js/main.01822686.js"
   ]
 }
