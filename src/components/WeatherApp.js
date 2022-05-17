@@ -4,6 +4,7 @@ import Dashboard from "./Dashboard.js";
 import {getCoordinates} from '../utils/WeatherUtils';
 
 function WeatherApp(){
+    const [input, setInput] = useState('Charlottesville');
     const [location, setLocation] = useState('Charlottesville');
     const [position, setPosition] = useState(null);
 
@@ -12,17 +13,20 @@ function WeatherApp(){
     useEffect(() => { 
         let ignore = false;
         async function fetchData() {
-            const result = await getCoordinates(location);
-        if (!ignore) setPosition(result);
+            const result = await getCoordinates(input, !isNaN(input));
+        if (!ignore){
+            setPosition(result[0]);
+            setLocation(result[1]);
+        }
     }
 
     fetchData();
     return () => { ignore = true; }
-    }, [location]);
+    }, [input]);
 
     return (
         <>
-            <Header onLocationSubmit= {(loc) => setLocation(loc)}/>
+            <Header onLocationSubmit= {(loc) => setInput(loc)}/>
             {position && <Dashboard location={location} position={position}/>}
         </>
     )

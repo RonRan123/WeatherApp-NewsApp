@@ -5,7 +5,7 @@ function WeatherDaily({weather}){
     return (
         <Box padding={10}>
             <Typography variant='h5' textAlign='left'>Daily Forecast</Typography>
-            {weather.map((data, index)=> <Daily dayWeather={data} isToday={index === 0} /> )}
+            {weather.map((data, index)=> <Daily dayWeather={data} isToday={index === 0} key={data.dt}/> )}
         </Box>
     );
 }

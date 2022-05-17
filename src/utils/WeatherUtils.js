@@ -2,24 +2,32 @@ import timestamp from "unix-timestamp";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const getCoordinates = (location) => {
-    let latitude, longitude;
-    const url = new URL("https://api.openweathermap.org/data/2.5/weather");
+const getCoordinates = (location, isZipCode=false, country_code='US') => {
+    let latitude, longitude, location_name, url;
+    if(isZipCode){
+      url = new URL("http://api.openweathermap.org/geo/1.0/zip");
+      url.searchParams.append('zip', location +','+country_code )
+    }
+    else{
+      url = new URL(" http://api.openweathermap.org/geo/1.0/direct");
+      url.searchParams.append("q", location +','+country_code);
+    }
     url.searchParams.append("appid", API_KEY);
-    url.searchParams.append("q", location);
+    url.searchParams.append("limit", 5);
+    console.log(url.href);
     return fetch(url)
       .then((resp) => {
         return resp.json();
       })
       .then((obj) => {
-        if (obj.cod === 200) {
-          latitude = obj.coord.lat;
-          longitude = obj.coord.lon;
-          return [latitude, longitude];
-        }
-        else{
-          return [null,null]
-        }
+        return isZipCode? obj:obj[0];
+      })
+      .then((obj) => {
+          latitude = obj.lat;
+          longitude = obj.lon;
+          location_name = obj.name;
+          console.log(location_name);
+          return [[latitude, longitude], location_name];
       });
   };
 

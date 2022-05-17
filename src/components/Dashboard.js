@@ -23,7 +23,7 @@ function Dashboard({location, position}){
     fetchData();
     return () => { ignore = true; }
     }, [position]);
-    console.log(weather && weather.current)
+    console.log(weather)
     return (weather && 
         <>
             <Typography component='h3' variant='h3'> {location} Weather</Typography>
