@@ -13,7 +13,7 @@ function WeatherApp(){
     useEffect(() => { 
         let ignore = false;
         async function fetchData() {
-            const result = await getCoordinates(input, !isNaN(input));
+            const result = await getCoordinates(input, !isNaN(input) && input.length === 5);
         if (!ignore){
             setPosition(result[0]);
             setLocation(result[1]);
